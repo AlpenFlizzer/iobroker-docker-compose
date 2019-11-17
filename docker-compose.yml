@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    iobroker:
+        container_name: iobroker
+        restart: always
+        image: buanet/iobroker
+        expose:
+            - "8081"
+        ports:
+            - "8081:8081"
+        volumes:
+            - /iobroker/core:/opt/iobroker/
+        networks:
+            - iobroker-network
+
+networks:
+    iobroker-network:
+        driver: bridge
